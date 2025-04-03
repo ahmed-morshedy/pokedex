@@ -1,23 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #dc0a2d;
   --foreground: #171717;
 }
 
-@theme inline {
+@theme {
+  --color-primary: #dc0a2d;
+  --color-pokemon-bug: #a7b723;
+  --color-pokemon-dark: #75574c;
+  --color-pokemon-dragon: #7037ff;
+  --color-pokemon-electric: #f9cf30;
+  --color-pokemon-fairy: #e69eac;
+  --color-pokemon-fighting: #c12239;
+  --color-pokemon-fire: #f57d31;
+  --color-pokemon-flying: #a891ec;
+  --color-pokemon-ghost: #70559b;
+  --color-pokemon-normal: #aaa67f;
+  --color-pokemon-grass: #74cb48;
+  --color-pokemon-ground: #dec16b;
+  --color-pokemon-ice: #9ad6df;
+  --color-pokemon-poison: #a43e9e;
+  --color-pokemon-psychic: #fb5584;
+  --color-pokemon-rock: #b69e31;
+  --color-pokemon-steel: #b7b9d0;
+  --color-pokemon-water: #6493eb;
+
+  --color-dark: #212121;
+  --color-light: #e0e0e0;
+  --color-medium: #666666;
+  --color-background: #efefef;
+  --color-white: #ffffff;
+
+  --inset-shadow-sm: inset 0px 0px 4px 0px #9e9e9e;
+}
+
+/* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
