@@ -3,7 +3,7 @@
 import { fetchPokemons } from "../utils/api";
 import { PokemonGridSkeleton } from "../utils/Skeletons";
 import PokeCard from "./PokeCard";
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 
 const MainPage = () => {
   const [Pokemons, setPokemons] = useState<PokemonDetails[]>([]);

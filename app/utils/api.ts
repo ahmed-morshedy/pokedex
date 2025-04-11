@@ -8,7 +8,6 @@ export async function fetchPokemons(): Promise<PokemonDetails[]> {
       pokemonData.results.map((pokemon) => fetchAPkemonByUrl(pokemon.url))
     );
 
-    console.log(allPokemons); // Log the fetched data
     return allPokemons;
   } catch (error) {
     console.error("Error fetching Pokémon list:", error);
