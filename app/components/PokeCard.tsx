@@ -2,24 +2,24 @@ import Image from "next/image";
 import React from "react";
 
 type Props = {
-  name: string;
-  id: number;
-  img: string;
+  pokemon: PokemonDetails;
 };
 
-function PokeCard({ name, id, img }: Props) {
+function PokeCard({ pokemon }: Props) {
+  const { id, name } = pokemon;
+  const img = pokemon.sprites.front_default;
   return (
-    <div className=" relative shadow-md rounded-xl flex justify-center items-center flex-col p-3  w-[80px] md:w-[150px] h-[158px] overflow-hidden ">
+    <div className=" relative shadow rounded-xl flex justify-center items-center flex-col p-3  w-[80px] md:w-[150px] h-[120px] md:h-[180px] overflow-hidden ">
       <span className=" absolute top-1 right-1 text-medium text-sm">{`#${id}`}</span>
       <Image
         src={img}
         width={150}
         height={150}
-        alt="pokemon image"
+        alt={`pokemon ${name} image`}
         className=" absolute z-10"
       />
-      <div className="p-1 bg-light rounded-xl w-full h-[44px] bottom-0 absolute z-0">
-        <p className=" text-center mt-3.5 text-sm">{name}</p>
+      <div className="p-1 bg-light rounded-xl w-full h-[25px] md:h-[35px] bottom-0 absolute z-0 flex justify-center items-center ">
+        <p className=" text-sm">{name}</p>
       </div>
     </div>
   );

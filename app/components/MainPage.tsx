@@ -1,60 +1,25 @@
+"use client";
+
+import { fetchAPkemonByUrl, fetchPokemons } from "../utils/api";
 import PokeCard from "./PokeCard";
+import { useState, useEffect } from "react";
 
-type Props = {};
+const MainPage = () => {
+  const [Pokemons, setPokemons] = useState<PokemonDetails[]>([]);
 
-const MainPage = (props: Props) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchPokemons();
+      setPokemons(data);
+    };
+    fetchData();
+  }, []);
+
   return (
-    <div className="p-4 inset-shadow-sm grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 bg-white m-4 rounded-2xl justify-items-center">
-      <PokeCard
-        name="Mew"
-        id={2}
-        img="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
-      />
-      <PokeCard
-        name="Mew"
-        id={2}
-        img="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
-      />
-      <PokeCard
-        name="Mew"
-        id={2}
-        img="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
-      />
-      <PokeCard
-        name="Mew"
-        id={2}
-        img="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
-      />
-      <PokeCard
-        name="Mew"
-        id={2}
-        img="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
-      />
-      <PokeCard
-        name="Mew"
-        id={2}
-        img="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
-      />
-      <PokeCard
-        name="Mew"
-        id={2}
-        img="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
-      />{" "}
-      <PokeCard
-        name="Mew"
-        id={2}
-        img="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
-      />
-      <PokeCard
-        name="Mew"
-        id={2}
-        img="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
-      />
-      <PokeCard
-        name="Mew"
-        id={2}
-        img="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
-      />
+    <div className="p-4 inset-shadow-sm grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 bg-white m-4 rounded-2xl justify-items-center">
+      {Pokemons.map((Pokemon) => {
+        return <PokeCard pokemon={Pokemon} key={Pokemon.id} />;
+      })}
     </div>
   );
 };
