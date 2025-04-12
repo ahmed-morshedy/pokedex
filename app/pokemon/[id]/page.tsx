@@ -6,11 +6,11 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 interface Params {
-  slug?: string;
+  id?: string;
 }
 
 function PokemonPage() {
-  const { slug } = useParams() as Params;
+  const { id } = useParams() as Params;
   const [pokemonData, setPokemonData] = useState<PokemonDetails | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -27,8 +27,8 @@ function PokemonPage() {
       }
     }
 
-    fetchData(slug ? slug : "1");
-  }, [slug]);
+    fetchData(id ? id : "1");
+  }, [id]);
 
   if (isLoading) {
     return (
@@ -38,7 +38,7 @@ function PokemonPage() {
     );
   }
 
-  return <PokePage poke={pokemonData} />;
+  return <>{pokemonData && <PokePage poke={pokemonData} />}</>;
 }
 
 export default PokemonPage;
