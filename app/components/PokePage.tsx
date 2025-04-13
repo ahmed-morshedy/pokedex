@@ -33,7 +33,7 @@ const PokePage = ({ poke }: Props) => {
             <img src="/assets/Vector.png" alt="pre pokemon " />
           </Link>
           <Image
-            src={sprites?.front_default}
+            src={sprites?.other.dream_world.front_default}
             alt="pokemon image"
             height={300}
             width={300}

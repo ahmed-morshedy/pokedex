@@ -5,6 +5,11 @@ interface Pokemon {
   results: { name: string; url: string }[];
 }
 
+interface Other {
+  home: { front_default: string };
+  dream_world: { front_default: string };
+}
+
 interface PokemonDetails {
   id: number;
   name: string;
@@ -18,5 +23,6 @@ interface PokemonDetails {
     back_default: string | null;
     front_shiny: string | null;
     back_shiny: string | null;
+    other: Other;
   };
 }
