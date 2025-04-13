@@ -9,7 +9,7 @@ const PokePage = ({ poke }: Props) => {
   return (
     <div className="relative  h-full w-full ">
       <div className="absolute top-5 left-0 w-full h-full -z-10">
-        <img src="/assets/Pokeball_2.png" alt="Pokeball" className="" />
+        <img src="/assets/pokeball_2.png" alt="Pokeball" className="" />
       </div>
       <div className="p-2 mt-6 flex justify-between items-center w-full px-4 text-white">
         <div className="flex items-center">
