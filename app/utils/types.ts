@@ -27,7 +27,7 @@ interface PokemonDetails {
   height: number;
   weight: number;
   moves: Moves[];
-  types: Array<{ type: { name: string } }> | null;
+  types: Array<{ type: { name: string } }>;
   abilities: Abilities[];
   stats: Stats[];
   sprites: {

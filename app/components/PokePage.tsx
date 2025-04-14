@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import "./PokePage.css";
+import clsx from "clsx";
 
 const PokePage = ({ poke }: Props) => {
   let { name, id, types, stats, abilities, sprites, weight, height, moves } =
@@ -11,18 +12,43 @@ const PokePage = ({ poke }: Props) => {
 
   let idPram = Number(useParams().id);
 
+  const fType = types[0].type.name;
+
   const handelClick = (e: React.MouseEvent) => {
     idPram = idPram + 1;
     console.log(idPram);
   };
 
   return (
-    <div className="relative  min-h-screen w-full bg-amber-600 p-3">
-      <img
+    <div
+      className={clsx("relative  min-h-screen w-full p-3", {
+        "bg-pokemon-fire": fType == "fire",
+        "bg-pokemon-grass": fType == "grass",
+        "bg-pokemon-ghost": fType == "ghost",
+        "bg-pokemon-normal": fType == "normal",
+        "bg-pokemon-fighting": fType == "fighting",
+        "bg-pokemon-water": fType == "water",
+        "bg-pokemon-flying": fType == "flying",
+        "bg-pokemon-poison": fType == "poison",
+        "bg-pokemon-ground": fType == "ground",
+        "bg-pokemon-rock": fType == "rock",
+        "bg-pokemon-bug": fType == "bug",
+        "bg-pokemon-dark": fType == "dark",
+        "bg-pokemon-steel": fType == "steel",
+        "bg-pokemon-ice": fType == "ice",
+        "bg-pokemon-fairy": fType == "fairy",
+        "bg-pokemon-psychic": fType == "psychic",
+        "bg-pokemon-electric": fType == "electric",
+        "bg-pokemon-dragon": fType == "dragon",
+      })}
+    >
+      {/* Background Image */}
+
+      {/* <img
         src="/assets/pokeball_2.png"
         alt="Pokeball"
         className="absolute top-7 right-1 md:right-7  -z-10"
-      />
+      /> */}
 
       {/* Title */}
       <div className="p-2 mt-6 flex justify-between items-center w-full px-4 text-white">
@@ -74,7 +100,29 @@ const PokePage = ({ poke }: Props) => {
           {types?.map((type, index) => (
             <span
               key={index}
-              className="bg-medium rounded-full px-3 py-1 mx-1 text-sm font-semibold text-white"
+              className={clsx(
+                "rounded-full px-3 py-1 mx-1 text-sm font-semibold text-white",
+                {
+                  "bg-pokemon-fire": type.type.name == "fire",
+                  "bg-pokemon-grass": type.type.name == "grass",
+                  "bg-pokemon-ghost": type.type.name == "ghost",
+                  "bg-pokemon-normal": type.type.name == "normal",
+                  "bg-pokemon-fighting": type.type.name == "fighting",
+                  "bg-pokemon-water": type.type.name == "water",
+                  "bg-pokemon-flying": type.type.name == "flying",
+                  "bg-pokemon-poison": type.type.name == "poison",
+                  "bg-pokemon-ground": type.type.name == "ground",
+                  "bg-pokemon-rock": type.type.name == "rock",
+                  "bg-pokemon-bug": type.type.name == "bug",
+                  "bg-pokemon-dark": type.type.name == "dark",
+                  "bg-pokemon-steel": type.type.name == "steel",
+                  "bg-pokemon-ice": type.type.name == "ice",
+                  "bg-pokemon-fairy": type.type.name == "fairy",
+                  "bg-pokemon-psychic": type.type.name == "psychic",
+                  "bg-pokemon-electric": type.type.name == "electric",
+                  "bg-pokemon-dragon": type.type.name == "dragon",
+                }
+              )}
             >
               {type.type.name}
             </span>
@@ -83,7 +131,31 @@ const PokePage = ({ poke }: Props) => {
 
         {/* About */}
         <div className="flex flex-col justify-center items-center mt-4">
-          <span className=" rounded-full px-3 py-1 mx-1 text-2xl font-semibold text-Wireframe">
+          <span
+            className={clsx(
+              " rounded-full px-3 py-1 mx-1 text-2xl font-semibold ",
+              {
+                "text-pokemon-fire": fType == "fire",
+                "text-pokemon-grass": fType == "grass",
+                "text-pokemon-ghost": fType == "ghost",
+                "text-pokemon-normal": fType == "normal",
+                "text-pokemon-fighting": fType == "fighting",
+                "text-pokemon-water": fType == "water",
+                "text-pokemon-flying": fType == "flying",
+                "text-pokemon-poison": fType == "poison",
+                "text-pokemon-ground": fType == "ground",
+                "text-pokemon-rock": fType == "rock",
+                "text-pokemon-bug": fType == "bug",
+                "text-pokemon-dark": fType == "dark",
+                "text-pokemon-steel": fType == "steel",
+                "text-pokemon-ice": fType == "ice",
+                "text-pokemon-fairy": fType == "fairy",
+                "text-pokemon-psychic": fType == "psychic",
+                "text-pokemon-electric": fType == "electric",
+                "text-pokemon-dragon": fType == "dragon",
+              }
+            )}
+          >
             About
           </span>
 
@@ -133,7 +205,31 @@ const PokePage = ({ poke }: Props) => {
 
         {/* Base Stats */}
         <div className="mt-4 w-full   flex flex-col items-center">
-          <span className=" rounded-full px-3 py-1 mx-1 text-2xl font-semibold text-Wireframe">
+          <span
+            className={clsx(
+              " rounded-full px-3 py-1 mx-1 text-2xl font-semibold ",
+              {
+                "text-pokemon-fire": fType == "fire",
+                "text-pokemon-grass": fType == "grass",
+                "text-pokemon-ghost": fType == "ghost",
+                "text-pokemon-normal": fType == "normal",
+                "text-pokemon-fighting": fType == "fighting",
+                "text-pokemon-water": fType == "water",
+                "text-pokemon-flying": fType == "flying",
+                "text-pokemon-poison": fType == "poison",
+                "text-pokemon-ground": fType == "ground",
+                "text-pokemon-rock": fType == "rock",
+                "text-pokemon-bug": fType == "bug",
+                "text-pokemon-dark": fType == "dark",
+                "text-pokemon-steel": fType == "steel",
+                "text-pokemon-ice": fType == "ice",
+                "text-pokemon-fairy": fType == "fairy",
+                "text-pokemon-psychic": fType == "psychic",
+                "text-pokemon-electric": fType == "electric",
+                "text-pokemon-dragon": fType == "dragon",
+              }
+            )}
+          >
             Base Stats
           </span>
           <table className="w-full">
@@ -141,7 +237,31 @@ const PokePage = ({ poke }: Props) => {
               {stats?.map((stat, index) => (
                 <tr key={index} className="border-b border-[#8b6f47]">
                   {/* Stat Name */}
-                  <td className="py-2 pl-4 text-left whitespace-nowrap">
+                  <td
+                    className={clsx(
+                      "py-2 pl-4 text-left whitespace-nowrap font-bold",
+                      {
+                        "text-pokemon-fire": fType == "fire",
+                        "text-pokemon-grass": fType == "grass",
+                        "text-pokemon-ghost": fType == "ghost",
+                        "text-pokemon-normal": fType == "normal",
+                        "text-pokemon-fighting": fType == "fighting",
+                        "text-pokemon-water": fType == "water",
+                        "text-pokemon-flying": fType == "flying",
+                        "text-pokemon-poison": fType == "poison",
+                        "text-pokemon-ground": fType == "ground",
+                        "text-pokemon-rock": fType == "rock",
+                        "text-pokemon-bug": fType == "bug",
+                        "text-pokemon-dark": fType == "dark",
+                        "text-pokemon-steel": fType == "steel",
+                        "text-pokemon-ice": fType == "ice",
+                        "text-pokemon-fairy": fType == "fairy",
+                        "text-pokemon-psychic": fType == "psychic",
+                        "text-pokemon-electric": fType == "electric",
+                        "text-pokemon-dragon": fType == "dragon",
+                      }
+                    )}
+                  >
                     {stat.stat.name.toUpperCase()}
                   </td>
 
@@ -160,12 +280,29 @@ const PokePage = ({ poke }: Props) => {
                       }}
                     >
                       <div
-                        className="h-4 rounded-full"
+                        className={clsx("h-4 rounded-full", {
+                          "bg-pokemon-fire": fType == "fire",
+                          "bg-pokemon-grass": fType == "grass",
+                          "bg-pokemon-ghost": fType == "ghost",
+                          "bg-pokemon-normal": fType == "normal",
+                          "bg-pokemon-fighting": fType == "fighting",
+                          "bg-pokemon-water": fType == "water",
+                          "bg-pokemon-flying": fType == "flying",
+                          "bg-pokemon-poison": fType == "poison",
+                          "bg-pokemon-ground": fType == "ground",
+                          "bg-pokemon-rock": fType == "rock",
+                          "bg-pokemon-bug": fType == "bug",
+                          "bg-pokemon-dark": fType == "dark",
+                          "bg-pokemon-steel": fType == "steel",
+                          "bg-pokemon-ice": fType == "ice",
+                          "bg-pokemon-fairy": fType == "fairy",
+                          "bg-pokemon-psychic": fType == "psychic",
+                          "bg-pokemon-electric": fType == "electric",
+                          "bg-pokemon-dragon": fType == "dragon",
+                        })}
                         style={{
                           width: `${stat.base_stat}%`,
-                          backgroundColor: "#6b8e23",
-                          backgroundImage:
-                            "linear-gradient(to right, #6b8e23, #556b2f)",
+
                           borderRadius: "9999px",
                           boxShadow: "inset 0 0 5px rgba(0, 0, 0, 0.3)",
                         }}
