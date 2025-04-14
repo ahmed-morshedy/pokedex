@@ -57,7 +57,7 @@ const PokePage = ({ poke, species }: Props) => {
             <img src="/assets/Vector_2.svg" alt="Back to home" />
           </Link>
 
-          <p className="font-bold text-2xl ml-2">{name}</p>
+          <p className="font-bold text-2xl ml-2">{name.toUpperCase()}</p>
         </div>
         <span className="font-bold text-2xl">{`#${id}`}</span>
       </div>
