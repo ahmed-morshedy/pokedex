@@ -1,13 +1,13 @@
-type Props = { poke: PokemonDetails };
-
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import "./PokePage.css";
 import clsx from "clsx";
 
+type Props = { poke: PokemonDetails };
+
 const PokePage = ({ poke }: Props) => {
-  let { name, id, types, stats, abilities, sprites, weight, height, moves } =
+  let { name, id, types, stats, abilities, sprites, weight, height } =
     poke || {};
 
   let idPram = Number(useParams().id);
@@ -42,7 +42,7 @@ const PokePage = ({ poke }: Props) => {
       <img
         src="/assets/pokeball_2.png"
         alt="Pokeball"
-        className="absolute top-7 right-1 md:right-7"
+        className="absolute top-7 right-1 hidden md:right-7 md:block     "
       />
 
       {/* Title */}
@@ -277,7 +277,7 @@ const PokePage = ({ poke }: Props) => {
                       }}
                     >
                       <div
-                        className={clsx("h-4 rounded-full", {
+                        className={clsx("h-4 rounded-full stat-bar-fill", {
                           "bg-pokemon-fire": fType == "fire",
                           "bg-pokemon-grass": fType == "grass",
                           "bg-pokemon-ghost": fType == "ghost",
@@ -298,8 +298,7 @@ const PokePage = ({ poke }: Props) => {
                           "bg-pokemon-dragon": fType == "dragon",
                         })}
                         style={{
-                          width: `${stat.base_stat}%`,
-
+                          "--target-width": `${stat.base_stat}%`,
                           borderRadius: "9999px",
                           boxShadow: "inset 0 0 5px rgba(0, 0, 0, 0.3)",
                         }}

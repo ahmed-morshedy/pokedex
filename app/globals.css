@@ -36,19 +36,18 @@
   --inset-shadow-sm: inset 0px 0px 4px 0px #9e9e9e;
 }
 
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes fill-bar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target-width);
+  }
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
+.stat-bar-fill {
+  animation: fill-bar 0.7s ease-in-out forwards;
+}
 
 html {
   scroll-behavior: smooth;
