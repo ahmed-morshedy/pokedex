@@ -43,7 +43,7 @@ const MainPage = () => {
     );
   }
   return (
-    <div className="p-4 inset-shadow-sm grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 bg-white m-4 rounded-2xl justify-items-center">
+    <div className="p-4 inset-shadow-sm grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 bg-white mt-3 rounded-2xl justify-items-center ">
       {Pokemons.map((Pokemon) => {
         return <PokeCard pokemon={Pokemon} key={Pokemon.id} />;
       })}

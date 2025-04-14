@@ -3,7 +3,7 @@ import MainPage from "./components/MainPage";
 
 export default function Home() {
   return (
-    <div>
+    <div className=" bg-primary p-3">
       <Navigation />
       <MainPage />
     </div>

@@ -3,6 +3,7 @@ type Props = { poke: PokemonDetails };
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import "./PokePage.css";
 
 const PokePage = ({ poke }: Props) => {
   let { name, id, types, stats, abilities, sprites, weight, height, moves } =
@@ -16,7 +17,7 @@ const PokePage = ({ poke }: Props) => {
   };
 
   return (
-    <div className="relative  h-full w-full bg-amber-600 ">
+    <div className="relative  h-full w-full bg-amber-600 p-3">
       <img
         src="/assets/pokeball_2.png"
         alt="Pokeball"
@@ -66,7 +67,7 @@ const PokePage = ({ poke }: Props) => {
 
       {/* Card */}
       <div
-        className={` relative mx-2 mb-2 rounded-3xl bg-white p-3 flex flex-col items-center`}
+        className={` relative  mb-2 rounded-3xl bg-white p-3 flex flex-col items-center`}
       >
         {/* Types */}
         <div className="flex justify-center items-center ">
