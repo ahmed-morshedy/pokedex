@@ -14,11 +14,6 @@ const PokePage = ({ poke }: Props) => {
 
   const fType = types[0].type.name;
 
-  const handelClick = (e: React.MouseEvent) => {
-    idPram = idPram + 1;
-    console.log(idPram);
-  };
-
   return (
     <div
       className={clsx("relative  min-h-screen w-full p-3", {
@@ -64,7 +59,8 @@ const PokePage = ({ poke }: Props) => {
 
       {/* Image */}
       <div className="flex justify-center items-center">
-        <Link href={""}>
+        {/* Previous  Pokemon */}
+        <Link href={`/pokemon/${idPram - 1}`}>
           <img
             src="/assets/Vectorl.svg"
             alt="pre pokemon "
@@ -82,7 +78,8 @@ const PokePage = ({ poke }: Props) => {
           className=" mx-10 max-w-fit "
         />
 
-        <Link href={""}>
+        {/* Next Pokemon */}
+        <Link href={`/pokemon/${idPram + 1}`}>
           <img
             src="/assets/Vectorr.svg"
             alt=" next pokemon "
