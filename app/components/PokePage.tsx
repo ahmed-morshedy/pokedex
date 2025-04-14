@@ -44,11 +44,11 @@ const PokePage = ({ poke }: Props) => {
     >
       {/* Background Image */}
 
-      {/* <img
+      <img
         src="/assets/pokeball_2.png"
         alt="Pokeball"
-        className="absolute top-7 right-1 md:right-7  -z-10"
-      /> */}
+        className="absolute top-7 right-1 md:right-7"
+      />
 
       {/* Title */}
       <div className="p-2 mt-6 flex justify-between items-center w-full px-4 text-white">
