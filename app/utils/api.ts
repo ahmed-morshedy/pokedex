@@ -34,7 +34,17 @@ export async function fetchAPkemonByUrl(url: string): Promise<any> {
 
 export async function fetchAPkemonByID(id: string): Promise<any> {
   const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+
   const pokemonData: PokemonDetails = await data.json();
 
   return pokemonData;
+}
+
+export async function fetchAPkemonSpeciesByID(id: string): Promise<any> {
+  const pokemonSpecies = await fetch(
+    `https://pokeapi.co/api/v2/pokemon-species/${id}`
+  );
+  const speciesData: PokemonSpecies = await pokemonSpecies.json();
+
+  return speciesData;
 }

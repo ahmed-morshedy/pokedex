@@ -38,3 +38,13 @@ interface PokemonDetails {
     other: Other;
   };
 }
+
+interface flavor_text_entries {
+  flavor_text: string;
+}
+
+interface PokemonSpecies {
+  id: number;
+  name: string;
+  flavor_text_entries: flavor_text_entries[];
+}

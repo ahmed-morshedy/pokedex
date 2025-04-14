@@ -4,15 +4,20 @@ import { useParams } from "next/navigation";
 import "./PokePage.css";
 import clsx from "clsx";
 
-type Props = { poke: PokemonDetails };
+type Props = { poke: PokemonDetails; species: PokemonSpecies };
 
-const PokePage = ({ poke }: Props) => {
+const PokePage = ({ poke, species }: Props) => {
   let { name, id, types, stats, abilities, sprites, weight, height } =
     poke || {};
 
   let idPram = Number(useParams().id);
 
   const fType = types[0].type.name;
+
+  const pokespecies = species.flavor_text_entries[8].flavor_text.replace(
+    /[\n , \f]/g,
+    " "
+  );
 
   return (
     <div
@@ -198,6 +203,8 @@ const PokePage = ({ poke }: Props) => {
               <p className=" text-medium text-sm mt-3">Moves</p>
             </div>
           </div>
+
+          <p className="mt-3 px-2">{pokespecies}</p>
         </div>
 
         {/* Base Stats */}

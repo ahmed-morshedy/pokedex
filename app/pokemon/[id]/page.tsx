@@ -1,7 +1,7 @@
 "use client";
 
 import PokePage from "@/app/components/PokePage";
-import { fetchAPkemonByID } from "@/app/utils/api";
+import { fetchAPkemonByID, fetchAPkemonSpeciesByID } from "@/app/utils/api";
 import { PokePageSkeleton } from "@/app/utils/Skeletons";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -13,6 +13,9 @@ interface Params {
 function PokemonPage() {
   const { id } = useParams() as Params;
   const [pokemonData, setPokemonData] = useState<PokemonDetails | null>(null);
+  const [pokemonspecies, setPokemonspecies] = useState<PokemonSpecies | null>(
+    null
+  );
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -20,7 +23,9 @@ function PokemonPage() {
       try {
         setIsLoading(true);
         const data = await fetchAPkemonByID(id);
+        const speciesData = await fetchAPkemonSpeciesByID(id);
         setPokemonData(data);
+        setPokemonspecies(speciesData);
       } catch (error) {
         console.error("Error fetching Pokémon data:", error);
       } finally {
@@ -35,7 +40,13 @@ function PokemonPage() {
     return <PokePageSkeleton />;
   }
 
-  return <>{pokemonData && <PokePage poke={pokemonData} />}</>;
+  return (
+    <>
+      {pokemonData && pokemonspecies && (
+        <PokePage poke={pokemonData} species={pokemonspecies} />
+      )}
+    </>
+  );
 }
 
 export default PokemonPage;
