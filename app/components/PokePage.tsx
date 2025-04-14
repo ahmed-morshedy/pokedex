@@ -16,7 +16,7 @@ const PokePage = ({ poke }: Props) => {
   };
 
   return (
-    <div className="relative  h-full w-full ">
+    <div className="relative  h-full w-full bg-amber-600 ">
       <img
         src="/assets/pokeball_2.png"
         alt="Pokeball"
@@ -131,7 +131,10 @@ const PokePage = ({ poke }: Props) => {
         </div>
 
         {/* Base Stats */}
-        <div className="mt-4 w-full p-4">
+        <div className="mt-4 w-full   flex flex-col items-center">
+          <span className=" rounded-full px-3 py-1 mx-1 text-2xl font-semibold text-Wireframe">
+            Base Stats
+          </span>
           <table className="w-full">
             <tbody>
               {stats?.map((stat, index) => (

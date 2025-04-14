@@ -2,6 +2,7 @@
 
 import PokePage from "@/app/components/PokePage";
 import { fetchAPkemonByID } from "@/app/utils/api";
+import { PokePageSkeleton } from "@/app/utils/Skeletons";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -31,11 +32,7 @@ function PokemonPage() {
   }, [id]);
 
   if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="loader"></div>
-      </div>
-    );
+    return <PokePageSkeleton />;
   }
 
   return <>{pokemonData && <PokePage poke={pokemonData} />}</>;
