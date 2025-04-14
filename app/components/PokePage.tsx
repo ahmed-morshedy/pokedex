@@ -17,7 +17,7 @@ const PokePage = ({ poke }: Props) => {
   };
 
   return (
-    <div className="relative  h-full w-full bg-amber-600 p-3">
+    <div className="relative  min-h-svh w-full bg-amber-600 p-3">
       <img
         src="/assets/pokeball_2.png"
         alt="Pokeball"
