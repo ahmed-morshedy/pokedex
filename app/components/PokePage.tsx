@@ -277,7 +277,7 @@ const PokePage = ({ poke }: Props) => {
                       }}
                     >
                       <div
-                        className={clsx("h-4 rounded-full stat-bar-fill", {
+                        className={clsx("h-4 rounded-full  ", {
                           "bg-pokemon-fire": fType == "fire",
                           "bg-pokemon-grass": fType == "grass",
                           "bg-pokemon-ghost": fType == "ghost",
@@ -298,7 +298,7 @@ const PokePage = ({ poke }: Props) => {
                           "bg-pokemon-dragon": fType == "dragon",
                         })}
                         style={{
-                          "--target-width": `${stat.base_stat}%`,
+                          width: `${stat.base_stat}%`,
                           borderRadius: "9999px",
                           boxShadow: "inset 0 0 5px rgba(0, 0, 0, 0.3)",
                         }}
