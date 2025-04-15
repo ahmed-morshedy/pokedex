@@ -11,13 +11,15 @@ const PokePage = ({ poke, species }: Props) => {
     poke || {};
 
   let idPram = Number(useParams().id);
-
+  const img =
+    sprites?.other.dream_world.front_default ||
+    sprites?.other.home.front_default;
   const fType = types[0].type.name;
 
-  const pokespecies = species.flavor_text_entries[8].flavor_text.replace(
-    /[\n , \f]/g,
-    " "
-  );
+  const pokespecies =
+    species.flavor_text_entries[8]?.language.name === "en"
+      ? species.flavor_text_entries[8].flavor_text.replace(/[\n , \f]/g, " ")
+      : species.flavor_text_entries[0]?.flavor_text.replace(/[\n , \f]/g, " ");
 
   return (
     <div
@@ -76,7 +78,7 @@ const PokePage = ({ poke, species }: Props) => {
         </Link>
 
         <Image
-          src={sprites?.other.dream_world.front_default}
+          src={img}
           alt="pokemon image"
           height={150}
           width={150}
