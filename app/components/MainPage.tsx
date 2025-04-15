@@ -43,8 +43,6 @@ const MainPage = () => {
     fetchData();
   }, [searchParams]);
 
-  console.log(searchParams.get("id"));
-
   if (isLoading) {
     return <PokemonGridSkeleton count={12} />;
   }
