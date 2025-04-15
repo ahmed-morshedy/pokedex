@@ -42,7 +42,7 @@ function Search({}: Props) {
           placeholder="Search by number..."
           className="h-6  bg-white  w-40 focus:outline-none rounded-2xl px-2 md:w-64 md:h-10"
           onChange={(e) => {
-            handleSearch(e.target.value);
+            handleSearch(e.target.value.replace(/[^0-9]/g, ""));
           }}
         />
       </div>
