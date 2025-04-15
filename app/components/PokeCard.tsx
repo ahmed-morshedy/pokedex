@@ -49,8 +49,8 @@ function PokeCard({ pokemon }: Props) {
           className=" absolute z-10 mt-4"
         />
 
-        <div className="p-1 bg-light rounded-xl w-full h-[25px] md:h-[35px] bottom-0 absolute z-0 flex justify-center items-center ">
-          <p className=" text-sm">{name}</p>
+        <div className="p-1 bg-light  w-full h-[25px] md:h-[35px] bottom-0 absolute z-0 flex justify-center items-center ">
+          <p className=" text-sm">{name.toUpperCase()}</p>
         </div>
       </div>
     </Link>
