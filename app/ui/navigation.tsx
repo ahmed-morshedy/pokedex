@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Search from "./Search";
 import Fillter from "./Fillter";
+import { Suspense } from "react";
 
 type Props = {};
 
@@ -22,7 +23,9 @@ function Navigation({}: Props) {
         </div>
       </header>
       <div className="flex justify-center items-center mt-4">
-        <Search />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Search />
+        </Suspense>
         <Fillter />
       </div>
     </>
