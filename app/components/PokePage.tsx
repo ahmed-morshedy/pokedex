@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import "./PokePage.css";
+
 import clsx from "clsx";
 
 type Props = { poke: PokemonDetails; species: PokemonSpecies };
