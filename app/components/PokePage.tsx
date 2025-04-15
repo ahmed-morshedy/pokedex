@@ -23,7 +23,7 @@ const PokePage = ({ poke, species }: Props) => {
 
   return (
     <div
-      className={clsx("relative  min-h-[850px] md:min-h-[800px] w-full  ", {
+      className={clsx("relative  min-h-[930px] md:min-h-[840px] w-full  ", {
         "bg-pokemon-fire": fType == "fire",
         "bg-pokemon-grass": fType == "grass",
         "bg-pokemon-ghost": fType == "ghost",
@@ -318,7 +318,7 @@ const PokePage = ({ poke, species }: Props) => {
                             "bg-pokemon-dragon": fType == "dragon",
                           })}
                           style={{
-                            width: `${stat.base_stat}%`,
+                            width: `${(stat.base_stat / 160) * 100}%`,
                             borderRadius: "9999px",
                             boxShadow: "inset 0 0 5px rgba(0, 0, 0, 0.3)",
                           }}
