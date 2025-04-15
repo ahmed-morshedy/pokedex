@@ -33,7 +33,7 @@ const MainPage = () => {
     const parsedUrl = new URL(href);
 
     const offset: string | number = parsedUrl.searchParams.get("offset") ?? "0";
-    if (Number(offset) === 1000) return;
+    if (Number(offset) > 1000) return;
 
     const limit = parsedUrl.searchParams.get("limit");
     const params = new URLSearchParams(searchParams);
@@ -146,7 +146,11 @@ const MainPage = () => {
             return <PokeCard pokemon={Pokemon} key={Pokemon.id} />;
           })}
       </div>
-      <div className=" flex justify-between   m-4">
+      <div
+        className={clsx(" flex justify-between m-4", {
+          hidden: searchParams.get("id") && Pokemons?.length == 1,
+        })}
+      >
         <button
           onClick={() => handelPre(pre)}
           className={clsx(
@@ -164,9 +168,9 @@ const MainPage = () => {
           className={clsx(
             " p-3 bg-Wireframe rounded-md  font-semibold cursor-pointer text-white",
             {
-              "cursor-not-allowed bg-red-400": Number(offset) === 982 || !next,
+              "cursor-not-allowed bg-red-400": Number(offset) > 982 || !next,
 
-              "cursor-pointer bg-red-800 ": next && Number(offset) !== 982,
+              "cursor-pointer bg-red-800 ": next && Number(offset) < 982,
             }
           )}
         >
