@@ -1,8 +1,9 @@
 "use client";
 
-import { fetchPokemons } from "../utils/api";
+import { fetchAPkemonByID, fetchPokemons } from "../utils/api";
 import { PokemonGridSkeleton } from "../utils/Skeletons";
 import PokeCard from "./PokeCard";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
 const MainPage = () => {
@@ -10,20 +11,35 @@ const MainPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const searchParams = useSearchParams();
+
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const data = await fetchPokemons();
-        setPokemons(data);
-      } catch (err) {
-        setError("Failed to load Pokémon. Please try again later.");
-      } finally {
-        setIsLoading(false);
+      if (searchParams.get("id")) {
+        try {
+          const id = searchParams.get("id") as string;
+          setIsLoading(true);
+          const data = await fetchAPkemonByID(id);
+          setPokemons([data]);
+        } catch (err) {
+          setError("Failed to load Pokémon. Please try again later.");
+        } finally {
+          setIsLoading(false);
+        }
+      } else {
+        try {
+          setIsLoading(true);
+          const data = await fetchPokemons();
+          setPokemons(data);
+        } catch (err) {
+          setError("Failed to load Pokémon. Please try again later.");
+        } finally {
+          setIsLoading(false);
+        }
       }
     };
     fetchData();
-  }, []);
+  }, [searchParams]);
 
   if (isLoading) {
     return <PokemonGridSkeleton count={12} />;
