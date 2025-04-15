@@ -25,13 +25,13 @@ function Search({}: Props) {
 
   return (
     <>
-      <div className=" flex justify-center items-center w-48 h-8 md:w-64 md:h-12 rounded-2xl bg-white p-4 inset-shadow-sm hover:inset-shadow-none hover:shadow-md">
+      <div className=" flex justify-center items-center w-52 h-10 md:w-64 md:h-12 rounded-2xl bg-white p-4 inset-shadow-sm hover:inset-shadow-none hover:shadow-md">
         <Image
           src={"/assets/Vector.svg"}
-          width={16}
-          height={16}
+          width={20}
+          height={20}
           alt=" search icon"
-          className="text-primary hover:cursor-pointer"
+          className="text-primary hover:cursor-pointer ml-2"
         />
         <input
           type="search"
@@ -40,7 +40,7 @@ function Search({}: Props) {
           maxLength={3}
           max={3}
           placeholder="Search by number..."
-          className="h-6  bg-white  w-40 focus:outline-none rounded-2xl px-2 md:w-64 md:h-10"
+          className="h-8  bg-white  w-[190px] focus:outline-none rounded-2xl px-2 md:w-64 md:h-10"
           onChange={(e) => {
             handleSearch(e.target.value.replace(/[^0-9]/g, ""));
           }}
