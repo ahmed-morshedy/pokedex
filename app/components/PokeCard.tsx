@@ -14,6 +14,13 @@ function PokeCard({ pokemon }: Props) {
   if (id > 1000) return;
 
   const fType = types[0].type.name;
+
+  function handelName(name: string) {
+    if (name.length > 9) {
+      return name.toUpperCase().slice(0, 8) + "...";
+    }
+    return name.toUpperCase();
+  }
   return (
     <Link href={`/pokemon/${id}`}>
       <div
@@ -52,7 +59,10 @@ function PokeCard({ pokemon }: Props) {
         />
 
         <div className="p-1 bg-light  w-full h-[25px] md:h-[35px] bottom-0 absolute z-0 flex justify-center items-center ">
-          <p className=" text-sm">{name.toUpperCase()}</p>
+          <p className="text-sm">
+            <span className="md:hidden">{handelName(name)}</span>
+            <span className="hidden md:inline">{name.toUpperCase()}</span>
+          </p>
         </div>
       </div>
     </Link>
