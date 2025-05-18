@@ -26,6 +26,29 @@ export function PokemonGridSkeleton({ count = 12 }: { count?: number }) {
   );
 }
 
+// TypeCardSkeleton.tsx
+export function TypeCardSkeleton() {
+  return (
+    <div className="relative flex justify-center items-center flex-col w-[200px] h-[200px] animate-pulse">
+      <div className="w-[150px] h-[50px] bg-gray-200  flex justify-center items-center"></div>
+    </div>
+  );
+}
+
+// TypeGridSkeleton.tsx
+export function TypeGridSkeleton({ count = 6 }: { count?: number }) {
+  return (
+    <div className="p-4 inset-shadow-sm bg-white mt-3 rounded-2xl mx-5 mb-6">
+      <div className="h-8 w-48 bg-gray-200 rounded mb-6"></div>
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-items-center">
+        {Array.from({ length: count }).map((_, index) => (
+          <TypeCardSkeleton key={index} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export const PokePageSkeleton = () => {
   return (
     <div className="relative h-full w-full animate-pulse">
