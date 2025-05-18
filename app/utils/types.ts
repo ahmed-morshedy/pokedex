@@ -49,3 +49,22 @@ interface PokemonSpecies {
   name: string;
   flavor_text_entries: flavor_text_entries[];
 }
+
+interface Pokemontypes {
+  count: number;
+  next: string;
+  previous: string;
+  results: { name: string; url: string }[];
+}
+
+interface Pokemontype {
+  id: number;
+  name: string;
+  pokemon: { pokemon: { name: string; url: string } }[];
+  sprites: {
+    "generation-viii": {
+      "legends-arceus": { name_icon: string };
+      "sword-shield": { name_icon: string };
+    };
+  };
+}
