@@ -50,3 +50,17 @@ export async function fetchAPkemonSpeciesByID(id: string): Promise<any> {
 
   return speciesData;
 }
+
+export async function fetchAPkemonTypes(): Promise<any> {
+  const pokemonType = await fetch(`https://pokeapi.co/api/v2/type/`);
+  const typeData: Pokemontypes = await pokemonType.json();
+
+  return typeData;
+}
+
+export async function fetchAPkemonTypeByName(name: string): Promise<any> {
+  const pokemonType = await fetch(`https://pokeapi.co/api/v2/type/${name}`);
+  const typeData: Pokemontype = await pokemonType.json();
+
+  return typeData;
+}
