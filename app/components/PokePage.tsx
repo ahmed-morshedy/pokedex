@@ -104,34 +104,36 @@ const PokePage = ({ poke, species }: Props) => {
         {/* Types */}
         <div className="flex justify-center items-center ">
           {types?.map((type, index) => (
-            <span
-              key={index}
-              className={clsx(
-                "rounded-full px-3 py-1 mx-1 text-sm font-semibold text-white",
-                {
-                  "bg-pokemon-fire": type.type.name == "fire",
-                  "bg-pokemon-grass": type.type.name == "grass",
-                  "bg-pokemon-ghost": type.type.name == "ghost",
-                  "bg-pokemon-normal": type.type.name == "normal",
-                  "bg-pokemon-fighting": type.type.name == "fighting",
-                  "bg-pokemon-water": type.type.name == "water",
-                  "bg-pokemon-flying": type.type.name == "flying",
-                  "bg-pokemon-poison": type.type.name == "poison",
-                  "bg-pokemon-ground": type.type.name == "ground",
-                  "bg-pokemon-rock": type.type.name == "rock",
-                  "bg-pokemon-bug": type.type.name == "bug",
-                  "bg-pokemon-dark": type.type.name == "dark",
-                  "bg-pokemon-steel": type.type.name == "steel",
-                  "bg-pokemon-ice": type.type.name == "ice",
-                  "bg-pokemon-fairy": type.type.name == "fairy",
-                  "bg-pokemon-psychic": type.type.name == "psychic",
-                  "bg-pokemon-electric": type.type.name == "electric",
-                  "bg-pokemon-dragon": type.type.name == "dragon",
-                }
-              )}
-            >
-              {type.type.name}
-            </span>
+            <Link href={`/Pokemontypes/${type.type.name}`} key={index}>
+              <span
+                key={index}
+                className={clsx(
+                  "rounded-full px-3 py-2 mx-1 text-sm font-semibold text-white",
+                  {
+                    "bg-pokemon-fire": type.type.name == "fire",
+                    "bg-pokemon-grass": type.type.name == "grass",
+                    "bg-pokemon-ghost": type.type.name == "ghost",
+                    "bg-pokemon-normal": type.type.name == "normal",
+                    "bg-pokemon-fighting": type.type.name == "fighting",
+                    "bg-pokemon-water": type.type.name == "water",
+                    "bg-pokemon-flying": type.type.name == "flying",
+                    "bg-pokemon-poison": type.type.name == "poison",
+                    "bg-pokemon-ground": type.type.name == "ground",
+                    "bg-pokemon-rock": type.type.name == "rock",
+                    "bg-pokemon-bug": type.type.name == "bug",
+                    "bg-pokemon-dark": type.type.name == "dark",
+                    "bg-pokemon-steel": type.type.name == "steel",
+                    "bg-pokemon-ice": type.type.name == "ice",
+                    "bg-pokemon-fairy": type.type.name == "fairy",
+                    "bg-pokemon-psychic": type.type.name == "psychic",
+                    "bg-pokemon-electric": type.type.name == "electric",
+                    "bg-pokemon-dragon": type.type.name == "dragon",
+                  }
+                )}
+              >
+                {type.type.name}
+              </span>
+            </Link>
           ))}
         </div>
 
