@@ -11,6 +11,8 @@ function PokeCard({ pokemon }: Props) {
   const { id, name, types } = pokemon;
   const img = pokemon.sprites.other.home.front_default;
 
+  if (id > 1000) return;
+
   const fType = types[0].type.name;
   return (
     <Link href={`/pokemon/${id}`}>
