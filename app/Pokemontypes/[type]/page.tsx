@@ -75,11 +75,11 @@ const page = () => {
           </Link>
         </div>
       </header>
-      <div className="p-4 inset-shadow-sm  bg-white mt-3 rounded-2xl mx-5 mb-6 ">
-        <p className="text-2xl font-bold">
+      <div className="p-2 md:p-4 inset-shadow-sm  bg-white mt-3 rounded-2xl mx-5 mb-6 ">
+        <p className="text-lg md:text-2xl font-bold">
           Pokemon Types :{" "}
           <span
-            className={clsx("  p-2 rounded-xl text-white", {
+            className={clsx("  p-1 md:p-2 rounded-xl text-white ", {
               "bg-pokemon-fire": type == "fire",
               "bg-pokemon-grass": type == "grass",
               "bg-pokemon-ghost": type == "ghost",
