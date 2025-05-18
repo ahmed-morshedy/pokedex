@@ -2,11 +2,7 @@
 
 import React from "react";
 
-import { useDebouncedCallback } from "use-debounce";
-
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import clsx from "clsx";
 import { fetchAPkemonTypeByName, fetchAPkemonTypes } from "../utils/api";
 import TypeCard from "../components/typeCard";
 import Image from "next/image";
@@ -17,56 +13,6 @@ const page = () => {
   const [PokemonTypes, setPokemonTypes] = useState<Pokemontype[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  const searchParams = useSearchParams();
-  const { replace } = useRouter();
-  const pathname = usePathname();
-  const offset = searchParams.get("offset");
-
-  const handelNext = useDebouncedCallback((href) => {
-    if (!href) return;
-
-    const parsedUrl = new URL(href);
-
-    const offset: string | number = parsedUrl.searchParams.get("offset") ?? "0";
-    if (Number(offset) > 1000) return;
-
-    const limit = parsedUrl.searchParams.get("limit");
-    const params = new URLSearchParams(searchParams);
-
-    if (offset) {
-      params.set("offset", offset);
-    } else {
-      params.delete("offset");
-    }
-    if (limit) {
-      params.set("limit", limit);
-    } else {
-      params.delete("limit");
-    }
-    replace(`${pathname}?${params.toString()}`);
-  }, 200);
-
-  const handelPre = useDebouncedCallback((href) => {
-    if (!href) return;
-    const parsedUrl = new URL(href);
-
-    const offset: string | number = parsedUrl.searchParams.get("offset") ?? "0";
-    const limit = parsedUrl.searchParams.get("limit");
-    const params = new URLSearchParams(searchParams);
-
-    if (offset) {
-      params.set("offset", offset);
-    } else {
-      params.delete("offset");
-    }
-    if (limit) {
-      params.set("limit", limit);
-    } else {
-      params.delete("limit");
-    }
-    replace(`${pathname}?${params.toString()}`);
-  }, 200);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,7 +32,7 @@ const page = () => {
       }
     };
     fetchData();
-  }, [searchParams]);
+  }, []);
 
   if (isLoading) {
     return <TypeGridSkeleton count={18} />;
